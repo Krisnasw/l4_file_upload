@@ -59,10 +59,8 @@
                 },
                 success: function (response) {
                
-                    if (response['result'] == 'success') {
-
-                       alert('silindi');
-                    }
+                    if (response == 'success')
+                       alert('deleted');
                 },
                 error: function () {
                     alert("error");
