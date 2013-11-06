@@ -46,5 +46,7 @@ Route::post('delete-image', function () {
     $destinationPath = public_path() . '/uploads/';
     File::delete($destinationPath . Input::get('file'));
     File::delete($destinationPath . "100x100_" . Input::get('file'));
+
+     return Response::json('success', 200);
 });
 
