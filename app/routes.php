@@ -16,23 +16,8 @@ Route::get('/', function () {
     return View::make('index');
 });
 
+// upload file
 Route::post('/upload', function () {
-
-    /*
-    $file = Input::file('file');
-
-    $destinationPath = 'uploads/' . str_random(8);
-    $filename = $file->getClientOriginalName();
-    //$extension =$file->getClientOriginalExtension();
-
-    $upload_success = Input::file('file')->move($destinationPath, $filename);
-
-    if ($upload_success) {
-        return Response::json('success', 200);
-    } else {
-        return Response::json('error', 400);
-    }
-    */
 
     $file = Input::file('file');
 
@@ -48,21 +33,6 @@ Route::post('/upload', function () {
             // resizing an uploaded file
             Image::make($destinationPath . $filename)->resize(100, 100)->save($destinationPath . "100x100_" . $filename);
 
-            
-            /*
-            // open an image file
-            $img = Image::make('public/foo.jpg');
-
-            // now you are able to resize the instance
-            $img->resize(320, 240);
-
-            // and insert a watermark for example
-            $img->insert('public/watermark.png');
-
-            // finally we save the image as a new image
-            $img->save('public/bar.jpg');
-            */
-
             return Response::json('success', 200);
         } else {
             return Response::json('error', 400);
@@ -70,11 +40,8 @@ Route::post('/upload', function () {
     }
 });
 
-
+// delete image
 Route::post('delete-image', function () {
-
-    //echo "---";    
-    //var_dump(Input::all());
 
     $destinationPath = public_path() . '/uploads/';
     File::delete($destinationPath . Input::get('file'));
