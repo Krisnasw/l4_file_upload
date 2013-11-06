@@ -22,14 +22,13 @@
         {{ Form::open(array('url' => 'upload', 'class'=>'dropzone', 'id'=>'my-dropzone')) }}
         <!-- Single file upload 
         <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
--->
+        -->
         <!-- Multiple file upload-->
         <div class="fallback">
             <input name="file" type="file" multiple />
         </div>
         
         {{ Form::close() }}
-       <button id="clear-dropzone">Clear Dropzone</button>
     </div>
 </div>
 <script language="javascript">
@@ -84,8 +83,6 @@
     }
   };
 
-  // https://github.com/enyo/dropzone/issues/338
-  
 </script>
 </body>
 </html>
